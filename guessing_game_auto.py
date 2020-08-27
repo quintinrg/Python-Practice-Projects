@@ -1,45 +1,32 @@
-# Automated version of Guessing Game
-
-import time
+# Automatic version of Guessing Game
 import random
+import time
 
 my_rand_int = random.randint(0,100)
-
 number_of_guesses = 0 
-
 top_limit = 101
 bottom_limit = 0 
+guess = ''
+print(f'Welcome to the guessing game! \nThe machine will guess a number between {bottom_limit} and {top_limit - 1}')
 
-guess = ""
-
-while guess != my_rand_int:
-  guess = (top_limit + bottom_limit) / 2 
-  
+while guess != my_rand_int: 
+  time.sleep(0.5)
+  guess = (bottom_limit + top_limit) / 2
   guess = int(guess)
-  
   print(f'Guessing {guess}')
-
-  time.sleep(0.5) 
-
   number_of_guesses = number_of_guesses + 1
 
-  if guess > my_rand_int: 
-    
+  if guess > my_rand_int:   
     top_limit = guess
-    print("Your guess was too high") 
+    print('Guess was too high.') 
     print(f' Attempt number: {number_of_guesses}')
 
-  elif guess < my_rand_int:
-   
+  elif guess < my_rand_int: 
     bottom_limit = guess
-    print("Your guess was too small")
+    print('Guess was too small.')
     print(f' Attempt number: {number_of_guesses}')
     
-  elif guess == my_rand_int: 
+  elif guess == my_rand_int:
+    print(f'Correct number found! It was {my_rand_int}! \nIt took {number_of_guesses} tries.')
 
-    print(f'You win! The number was {my_rand_int}')
-    
-    print(f' It took you: {number_of_guesses} tries!')
-  
-print("The program is complete.") 
 
